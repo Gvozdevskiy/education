@@ -12,6 +12,7 @@ import static org.junit.Assert.*;
 /**
  * Created by artemaliev on 07/09/15.
  */
+
 public class IntSortTest
 {
   public static final int SEED = 1;
