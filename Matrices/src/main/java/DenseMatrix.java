@@ -5,7 +5,7 @@ import java.util.Scanner;
  * Created by Паша on 07.10.2015.
  */
 
-public class DenseMatrix implements Matrix{
+public class DenseMatrix implements Matrix {
     int height;
     int width;
     Vector array[];
@@ -49,4 +49,6 @@ public class DenseMatrix implements Matrix{
     public double getCell(int i, int j){
         return array[i].getCoordinate(j);
     }
+
+    public  Matrix transpose(){ return new TransposedMatrix(this);}
 }

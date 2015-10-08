@@ -9,4 +9,5 @@ public interface Matrix {
     Vector getRow(int i);
     Vector getColumn(int j);
     double getCell(int i, int j);
+    Matrix transpose();
 }

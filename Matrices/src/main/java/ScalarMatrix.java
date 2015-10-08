@@ -46,5 +46,7 @@ public class ScalarMatrix implements Matrix {
     public double getCell(int i, int j){
         return i==j ? scalar : 0;
     }
+
+    public  Matrix transpose(){ return this;}
 }
 

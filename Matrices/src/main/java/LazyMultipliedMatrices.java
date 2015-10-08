@@ -1,3 +1,5 @@
+import java.util.HashMap;
+
 /**
  * Created by Паша on 07.10.2015.
  */
@@ -6,7 +8,7 @@ public class LazyMultipliedMatrices implements Matrix {
     Matrix leftMatrix;
     Matrix rightMatrix;
 
-    HashTableForLazyThings hashTable;
+    HashMap<Integer, Double> hashMap =new HashMap<Integer,Double>();
 
     int height;
     int width;
@@ -32,8 +34,6 @@ public class LazyMultipliedMatrices implements Matrix {
                 known[i][j]=false;
             }
         }
-
-        hashTable=new HashTableForLazyThings(height);
     }
 
     public int getHeight(){
@@ -68,17 +68,19 @@ public class LazyMultipliedMatrices implements Matrix {
 
     public double getCell(int i, int j){
         if(known[i][j]){
-            return hashTable.getCell(i,j);
+            return hashMap.get(1000000007*i+j);
         }
 
         else {
             known[i][j]=true;
             double val=leftMatrix.getRow(i).multiply(rightMatrix.getColumn(j));
-            hashTable.setCell(new Cell(i,j,val));
+            hashMap.put(1000000007*i+j, val);
             return (val);
         }
 
     }
+
+    public  Matrix transpose(){ return new TransposedMatrix(this);}
 }
 
 
